@@ -5,8 +5,8 @@
         <group>
             <file>file:/C:/Users/20221050100070/Documents/NetBeansProjects/POO2/ProjetoLogin/src/DTO/usuario.java</file>
             <file>file:/C:/Users/20221050100070/Documents/NetBeansProjects/POO2/ProjetoLogin/src/TELAS/telaLogin.java</file>
-            <file>file:/C:/Users/20221050100070/Documents/NetBeansProjects/POO2/ProjetoLogin/src/BD/ConexaoDAO.java</file>
-            <file>file:/C:/Users/20221050100070/Documents/NetBeansProjects/POO2/ProjetoLogin/src/BD/UsuarioDAO.java</file>
+            <file>file:/C:/Users/20221050100070/Documents/NetBeansProjects/POO2/ProjetoLogin/src/DAO/ConexaoDAO.java</file>
+            <file>file:/C:/Users/20221050100070/Documents/NetBeansProjects/POO2/ProjetoLogin/src/DAO/UsuarioDAO.java</file>
         </group>
     </open-files>
 </project-private>
