@@ -8,9 +8,9 @@ package DTO;
  *
  * @author 20221050100070
  */
-public class usuario {
-    int id_usuario;
-    String nome_usuario,senha_usuario;
+public class UsuarioDTO {
+    private int id_usuario;
+    private String nome_usuario,senha_usuario;
 
     public int getId_usuario() {
         return id_usuario;

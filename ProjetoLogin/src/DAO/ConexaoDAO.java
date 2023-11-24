@@ -3,6 +3,7 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /*
@@ -15,16 +16,15 @@ import javax.swing.JOptionPane;
  * @author 20221050100070
  */
 public class ConexaoDAO {
-    private static Connection conn = null;
-    
-    public static Connection getConnection() {
-        if (conn == null) {
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                conn = DriverManager.getConnection("jdbc:mysql://localhost/projeto_login_poo2", "root", "");
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null,"Erro1: "+ e);
-            }
+    public Connection conectaBD() {
+        Connection conn = null;
+
+        try {
+            String url = "jdbc:mysql://localhost:3306/projeto_login_poo2?user=root&password=";
+            conn = DriverManager.getConnection(url);
+            
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "ConexaoDAO" + erro.getMessage());
         }
         return conn;
     }

@@ -4,6 +4,7 @@ import DTO.UsuarioDTO;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -130,7 +131,8 @@ public class telaLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
     private void txtNomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeUsuarioActionPerformed
@@ -140,6 +142,7 @@ public class telaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
+
         try {
             String nome_usuario, senha_usuario;
 
@@ -153,9 +156,19 @@ public class telaLogin extends javax.swing.JFrame {
             UsuarioDAO objusuariodao = new UsuarioDAO();
             ResultSet rsusuariodao = objusuariodao.autenticacaoUsuario(objusuariodto);
             
+            if (rsusuariodao.next()){
+                //chamar tela que eu quero abrir
+                
+            }else{
+                //enviar mensagem dizendo incorreto
+                JOptionPane.showMessageDialog(null, "Usuario ou Senha Inválidas!!");
+                
+            } 
+            
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null,"TELALOGIN" + erro);
+            JOptionPane.showInternalMessageDialog(null, "telaLogin" + erro);
         }
+
 
     }//GEN-LAST:event_btnAcessarActionPerformed
 
