@@ -35,6 +35,7 @@ public class UsuarioDTO {
     public void setSenha_usuario(String senha_usuario) {
         this.senha_usuario = senha_usuario;
     }
+
     
     
     

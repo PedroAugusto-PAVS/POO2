@@ -16,12 +16,14 @@ import javax.swing.JOptionPane;
  * @author 20221050100070
  */
 public class UsuarioDAO {
+
     Connection conn;
+    PreparedStatement pstm;
     
     public ResultSet autenticacaoUsuario (UsuarioDTO objusuariodto){
         conn = new ConexaoDAO().conectaBD();
         try {
-            String sql = "select * from usuario where nome_usuario = ? and senha = ? ";
+            String sql = "select * from usuario where nome_usuario = ? and senha_usuario = ?";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, objusuariodto.getNome_usuario());
             pstm.setString(2, objusuariodto.getSenha_usuario());
@@ -33,5 +35,25 @@ public class UsuarioDAO {
             JOptionPane.showMessageDialog(null, "UsuarioDAO: " + erro);
             return null;
         }
+    }
+        
+        
+        
+    public void cadastarNovoUser(UsuarioDTO objusuariodto){
+        String sql = "insert into usuario (nome_usuario, senha_usuario) values (?,?)";
+        
+        conn = new ConexaoDAO().conectaBD();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, objusuariodto.getNome_usuario());
+            pstm.setString(2, objusuariodto.getSenha_usuario());
+            
+            pstm.execute();
+            pstm.close();
+        } catch  (Exception erro) {
+            JOptionPane.showMessageDialog(null, "UsuarioDAO" + erro);
+        }
+        
     }
 }

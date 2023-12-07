@@ -1,3 +1,4 @@
+package TELAS;
 
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
@@ -39,8 +40,11 @@ public class telaLogin extends javax.swing.JFrame {
         btnLimpar = new javax.swing.JButton();
         btnAcessar = new javax.swing.JButton();
         txtSenhaUsuario = new javax.swing.JPasswordField();
+        btnCadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 204, 255));
 
@@ -51,7 +55,7 @@ public class telaLogin extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(145, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(109, 109, 109))
         );
@@ -87,28 +91,42 @@ public class telaLogin extends javax.swing.JFrame {
             }
         });
 
+        txtSenhaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenhaUsuarioActionPerformed(evt);
+            }
+        });
+
+        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNomeUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
-                            .addComponent(txtSenhaUsuario)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(103, 103, 103)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNomeUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                    .addComponent(txtSenhaUsuario))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,55 +140,39 @@ public class telaLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpar)
+                    .addComponent(btnCadastrar)
                     .addComponent(btnAcessar))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    
+
+
     private void txtNomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeUsuarioActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
+        limpar();
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
-
-        try {
-            String nome_usuario, senha_usuario;
-
-            nome_usuario = txtNomeUsuario.getText();
-            senha_usuario = txtSenhaUsuario.getName();
-
-            UsuarioDTO objusuariodto = new UsuarioDTO();
-            objusuariodto.setNome_usuario(nome_usuario);
-            objusuariodto.setSenha_usuario(senha_usuario);
-            
-            UsuarioDAO objusuariodao = new UsuarioDAO();
-            ResultSet rsusuariodao = objusuariodao.autenticacaoUsuario(objusuariodto);
-            
-            if (rsusuariodao.next()){
-                //chamar tela que eu quero abrir
-                
-            }else{
-                //enviar mensagem dizendo incorreto
-                JOptionPane.showMessageDialog(null, "Usuario ou Senha Inválidas!!");
-                
-            } 
-            
-        } catch (SQLException erro) {
-            JOptionPane.showInternalMessageDialog(null, "telaLogin" + erro);
-        }
-
-
+        logar();
     }//GEN-LAST:event_btnAcessarActionPerformed
+
+    private void txtSenhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenhaUsuarioActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // TODO add your handling code here:
+        cadastrarUsuario();
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,17 +200,19 @@ public class telaLogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(telaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new telaLogin().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new telaLogin().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcessar;
+    private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -217,4 +221,62 @@ public class telaLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeUsuario;
     private javax.swing.JPasswordField txtSenhaUsuario;
     // End of variables declaration//GEN-END:variables
+
+    private void logar() {
+        try {
+            String nome_usuario, senha_usuario;
+
+            nome_usuario = txtNomeUsuario.getText();
+            senha_usuario = new String(txtSenhaUsuario.getPassword());
+
+            /*String nome_usuario = txtNomeUsuario.getText(); 
+            String senha_usuario = String.valueOf(txtSenhaUsuario.getPassword());  */
+            UsuarioDTO objusuariodto = new UsuarioDTO();
+            objusuariodto.setNome_usuario(nome_usuario);
+            objusuariodto.setSenha_usuario(senha_usuario);
+
+            UsuarioDAO objusuariodao = new UsuarioDAO();
+            ResultSet rsusuariodao = objusuariodao.autenticacaoUsuario(objusuariodto);
+
+            if (rsusuariodao.next()) {
+                //chamar tela que eu quero abrir
+                telaPrincipal tp = new telaPrincipal();
+                tp.setVisible(true);
+
+                dispose();
+            } else {
+                //enviar mensagem dizendo incorreto
+                JOptionPane.showMessageDialog(null, "Usuario ou Senha Inválidas!!");
+
+            }
+
+        } catch (SQLException erro) {
+            JOptionPane.showInternalMessageDialog(null, "telaLogin" + erro);
+        }
+
+    }
+
+    private void cadastrarUsuario() {
+        String nome_usuario, senha_usuario;
+
+        nome_usuario = txtNomeUsuario.getText();
+        senha_usuario = new String(txtSenhaUsuario.getPassword());
+
+        UsuarioDTO objusuariodto = new UsuarioDTO();
+        objusuariodto.setNome_usuario(nome_usuario);
+        objusuariodto.setSenha_usuario(senha_usuario);
+
+        UsuarioDAO objusuariodao = new UsuarioDAO();
+        objusuariodao.cadastarNovoUser(objusuariodto);
+        
+        JOptionPane.showMessageDialog(null, "Usuario " + nome_usuario + " cadastrado" );
+
+    }
+
+    private void limpar() {
+        txtNomeUsuario.setText("");
+        txtSenhaUsuario.setText("");
+    }
+    
+    
 }
